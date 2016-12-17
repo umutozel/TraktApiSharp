@@ -2,3 +2,101 @@
 layout: default
 title: Downloads
 ---
+<div class="container" id="content-container">
+    <div class="row">
+        <div class="col-md-12">
+            <a name="top"></a>
+            <h3 class="page-header">Downloads</h3>
+
+            <p class="text-center">
+                The ZIP archives contain the source code, the DLL and the PDB of the library.<br />
+                All checksums are SHA256 checksums.
+            </p>
+
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Versions <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                {% for download in site.data.downloads %}
+                    <li><a href="#v{{ download.version }}">Version {{ download.version }}{% if download.latest_stable %} (Latest Stable){% endif %}</a></li>
+                {% endfor %}
+                </ul>
+            </div><br />
+
+            {% for download in site.data.downloads %}
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><a name="v{{ download.version }}"></a>
+                        <h5><b>Version {{ download.version }}{% if download.latest_stable %} (Latest Stable){% endif %}</b></h5>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-condensed">
+                            <thead><tr><th><small>Release</small></th><th><small>NuGet Package</small></th><th><small>ZIP Archive</small></th></tr></thead>
+                            <tbody>
+                            {% if download.final %}
+                                <tr class="success">
+                                    <td><small>Stable</small></td>
+                                    <td>
+                                    <a class="btn btn-success btn-xs" role="button" href="{{ download.final.nuget.url }}" target="_self">NuGet Package ({{ download.final.nuget.size }})</a><br />
+                                    <small><i>Checksum: {{ download.final.nuget.checksum }}</i></small>
+                                    </td>
+                                    <td>
+                                    <a class="btn btn-success btn-xs" role="button" href="{{ download.final.zip.url }}" target="_self">ZIP Archive ({{ download.final.zip.size }})</a><br />
+                                    <small><i>Checksum: {{ download.final.zip.checksum }}</i></small>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                            {% if download.rc %}
+                                {% for releasecandidate in download.rc %}
+                                <tr class="info">
+                                    <td><small>RC {{ releasecandidate.nr }}</small></td>
+                                    <td>
+                                    <a class="btn btn-success btn-xs" role="button" href="{{ releasecandidate.nuget.url }}" target="_self">NuGet Package ({{ releasecandidate.nuget.size }})</a><br />
+                                    <small><i>Checksum: {{ releasecandidate.nuget.checksum }}</i></small>
+                                    </td>
+                                    <td>
+                                    <a class="btn btn-success btn-xs" role="button" href="{{ releasecandidate.zip.url }}" target="_self">ZIP Archive ({{ releasecandidate.zip.size }})</a><br />
+                                    <small><i>Checksum: {{ releasecandidate.zip.checksum }}</i></small>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            {% endif %}
+                            {% if download.beta %}
+                                {% for betarelease in download.beta %}
+                                <tr class="warning">
+                                    <td><small>Beta {{ betarelease.nr }}</small></td>
+                                    <td>
+                                    <a class="btn btn-success btn-xs" role="button" href="{{ betarelease.nuget.url }}" target="_self">NuGet Package ({{ betarelease.nuget.size }})</a><br />
+                                    <small><i>Checksum: {{ betarelease.nuget.checksum }}</i></small>
+                                    </td>
+                                    <td>
+                                    <a class="btn btn-success btn-xs" role="button" href="{{ betarelease.zip.url }}" target="_self">ZIP Archive ({{ betarelease.zip.size }})</a><br />
+                                    <small><i>Checksum: {{ betarelease.zip.checksum }}</i></small>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            {% endif %}
+                            {% if download.alpha %}
+                                {% for alpharelease in download.alpha %}
+                                <tr class="danger">
+                                    <td><small>Alpha {{ alpharelease.nr }}</small></td>
+                                    <td>
+                                    <a class="btn btn-success btn-xs" role="button" href="{{ alpharelease.nuget.url }}" target="_self">NuGet Package ({{ alpharelease.nuget.size }})</a><br />
+                                    <small><i>Checksum: {{ alpharelease.nuget.checksum }}</i></small>
+                                    </td>
+                                    <td>
+                                    <a class="btn btn-success btn-xs" role="button" href="{{ alpharelease.zip.url }}" target="_self">ZIP Archive ({{ alpharelease.zip.size }})</a><br />
+                                    <small><i>Checksum: {{ alpharelease.zip.checksum }}</i></small>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <p class="text-right"><a href="#top">Top</a></p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
