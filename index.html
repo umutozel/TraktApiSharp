@@ -1,3 +1,113 @@
 ---
 layout: default
 ---
+
+<div id="modalDownload" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h3 class="page-header"><span class="mega-octicon octicon-cloud-download"></span> Download</h3>
+            </div>
+            <div class="modal-body slim-dialog">
+                <h4 class="page-header">Install latest version with NuGet (recommended)</h4>
+                <a href="https://www.nuget.org/packages/TraktApiSharp" target="_blank"><img src="img/nuget-logo.png" alt="NuGet" class="center-block" /></a><br />
+                <table align="center" width="100%">
+                    <tbody>
+                        <tr>
+                            <td width="46%" align="center">
+                                <pre><code class="csharp"><big>PM&gt; Install-Package TraktApiSharp</big></code></pre>
+                            </td>
+                            <td width="8%" align="center">
+                                <big>or</big>
+                            </td>
+                            <td width="46%" align="center">
+                                <big>Install via VS <a href="https://docs.nuget.org/consume/package-manager-dialog" target="_blank">Package Management</a> window.</big>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4 class="page-header">Direct Downloads</h4>
+                <p>
+                    NuGet packages and ZIP files of all released versions:
+                    <a class="btn btn-default btn-sm" role="button" href="{{ site.baseurl }}/downloads/" target="_self"><i class="fa fa-file-zip-o"></i> TraktApiSharp</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h1 class="text-center">TraktApiSharp</h1>
+                <p class="text-center"><small>TraktApiSharp is a .NET library, written in CSharp, which makes it easy to use the <a href="https://trakt.tv" target="_blank">Trakt.tv</a> <a href="http://docs.trakt.apiary.io/" target="_blank">API.</a></small></p>
+                <p class="text-center">
+                    <a class="btn btn-lg btn-success" role="button" href="#" target="_blank" data-toggle="modal" data-target="#modalDownload"><span class="octicon octicon-cloud-download"></span> Download</a>
+                    <a class="btn btn-lg btn-primary" role="button" href="https://github.com/henrikfroehling/TraktApiSharp" target="_blank"><span class="octicon octicon-mark-github"></span> Source Code</a>
+                </p>
+                <p class="text-center">
+                    <small>Open Source and free under the <a href="https://raw.githubusercontent.com/henrikfroehling/TraktApiSharp/master/LICENSE" target="_blank"><span class="octicon octicon-law"></span></i> MIT License</a></small>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h4 class="text-center">Supported Platforms</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <p class="text-center">.Net Framework >= 4.5 - ASP.NET Core 1.0 - Windows 8 / 8.1 / 10 / UWP</p>
+            <p class="text-center">Xamarin Android - Xamarin iOS - Windows Phone 8.1</p>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <h4><span class="octicon octicon-check"></span> Full Trakt.tv API Coverage</h4>
+            <p>You can use every available and <a href="http://docs.trakt.apiary.io/" target="_blank">documented</a> Trakt.tv API request.</p>
+        </div>
+        <div class="col-md-4">
+            <h4><span class="octicon octicon-shield"></span> Authentication Support</h4>
+            <p>The library makes it easy to authenticate your users either with OAuth- or with Device-Authentication.</p>
+        </div>
+        <div class="col-md-4">
+            <h4><span class="octicon octicon-zap"></span> Completely asynchronous</h4>
+            <p>Every API request is executed asynchronously and does not block your application UI.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h4><span class="octicon octicon-git-branch"></span> API Environments</h4>
+            <p>Both production and sandbox environment of the Trakt.tv API are supported.</p>
+        </div>
+        <div class="col-md-4">
+            <h4><span class="octicon octicon-file"></span> Serialization Service</h4>
+            <p>Get the user's current OAuth authorization as JSON with the builtin serialization service and save it for later usage.</p>
+        </div>
+        <div class="col-md-4">
+            <h4><span class="octicon octicon-globe"></span> Language Service</h4>
+            <p>The builtin language service makes it easy to lookup the language and country names for language and country codes returned by the Trakt.tv API.</p>
+        </div>
+    </div>
+    <hr />
+    <br /><div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h4 class="text-center">Samples</h4>
+        </div>
+    </div>
+    {% for sample in site.samples %}
+    <br /><div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h5 class="text-center">{{ sample.title }}</h5>
+            {{ sample.content }}
+        </div>
+    </div>
+    {% endfor %}
+</div>
