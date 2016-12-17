@@ -1,7 +1,8 @@
 # Site settings
 title: TraktApiSharp
+author: Henrik Fröhling
 email: henrik.froehling@gmail.com
-description: A .NET wrapper library for the Trakt.tv API.
+description: A .NET wrapper library for the Trakt.tv API
 twitter_username: henrikfroehling
 github_username:  henrikfroehling
 

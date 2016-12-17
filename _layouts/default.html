@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>{% if page.title %}{{ page.title}} · {% endif %}{{ site.title }} · {{ site.description }}</title>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Henrik Fröhling">
-    <meta name="description" content="A .NET wrapper library for the Trakt.tv API.">
-    <meta name="keywords" content="TraktApiSharp,Trakt,C#,CSharp,VB,Visual Basic,Sharp,REST,API,.NET,NuGet,Library,Wrapper{% if page.keywords %},{{ page.keywords}}{% endif %}">
+    <meta name="author" content="{{ site.author }}">
+    <meta name="description" content="{{ site.description }}.">
+    <meta name="keywords" content="{{ site.title }},Trakt,C#,CSharp,VB,Visual Basic,Sharp,REST,API,.NET,NuGet,Library,Wrapper{% if page.keywords %},{{ page.keywords}}{% endif %}">
 
-    <title>{% if page.title %}{{ page.title}} · {% endif %}TraktApiSharp · A .NET wrapper library for the Trakt.tv API</title>
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@{{ site.twitter_username }}" />
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title}} · {% endif %}{{ site.title }}" />
+    <meta name="twitter:description" content="{{ site.description }}." />
 
     {% include css.html %}
 
