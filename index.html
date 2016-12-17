@@ -102,11 +102,11 @@ layout: default
             <h4 class="text-center">Examples</h4>
         </div>
     </div>
-    {% for sample in site.samples %}
+    {% for example in site.homePageExamples %}
     <br /><div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <h5 class="text-center">{{ sample.title }}</h5>
-            {{ sample.content }}
+            <h5 class="text-center">{{ example.title }}</h5>
+            {{ example.content }}
         </div>
     </div>
     {% endfor %}
