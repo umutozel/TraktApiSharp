@@ -1,7 +1,7 @@
 # Site settings
 title: TraktApiSharp
 email: henrik.froehling@gmail.com
-description: ""
+description: A .NET wrapper library for the Trakt.tv API.
 twitter_username: henrikfroehling
 github_username:  henrikfroehling
 
