@@ -62,39 +62,30 @@ layout: default
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <p class="text-center">.Net Framework >= 4.5 - ASP.NET Core 1.0 - Windows 8 / 8.1 / 10 / UWP</p>
-            <p class="text-center">Xamarin Android - Xamarin iOS - Windows Phone 8.1</p>
+        <div class="col-md-10 col-md-offset-1">
+            <p class="text-center">
+            {% for platform in site.data.platforms %}
+                {{ platform.name }}{% unless forloop.last %} - {% endunless %}
+            {% endfor %}
+            </p>
         </div>
     </div>
     <hr />
     <div class="row">
+    {% for feature in site.data.features limit: 3 %}
         <div class="col-md-4">
-            <h4><span class="octicon octicon-check"></span> Full Trakt.tv API Coverage</h4>
-            <p>You can use every available and <a href="http://docs.trakt.apiary.io/" target="_blank">documented</a> Trakt.tv API request.</p>
+            <h4><span class="octicon {{ feature.octicon }}"></span> {{ feature.title }}</h4>
+            <p>{{ feature.summary }}</p>
         </div>
-        <div class="col-md-4">
-            <h4><span class="octicon octicon-shield"></span> Authentication Support</h4>
-            <p>The library makes it easy to authenticate your users either with OAuth- or with Device-Authentication.</p>
-        </div>
-        <div class="col-md-4">
-            <h4><span class="octicon octicon-zap"></span> Completely asynchronous</h4>
-            <p>Every API request is executed asynchronously and does not block your application UI.</p>
-        </div>
+    {% endfor %}
     </div>
     <div class="row">
+    {% for feature in site.data.features limit: 3 offset: 3 %}
         <div class="col-md-4">
-            <h4><span class="octicon octicon-git-branch"></span> API Environments</h4>
-            <p>Both production and sandbox environment of the Trakt.tv API are supported.</p>
+            <h4><span class="octicon {{ feature.octicon }}"></span> {{ feature.title }}</h4>
+            <p>{{ feature.summary }}</p>
         </div>
-        <div class="col-md-4">
-            <h4><span class="octicon octicon-file"></span> Serialization Service</h4>
-            <p>Get the user's current OAuth authorization as JSON with the builtin serialization service and save it for later usage.</p>
-        </div>
-        <div class="col-md-4">
-            <h4><span class="octicon octicon-globe"></span> Language Service</h4>
-            <p>The builtin language service makes it easy to lookup the language and country names for language and country codes returned by the Trakt.tv API.</p>
-        </div>
+    {% endfor %}
     </div>
     <hr />
     <br /><div class="row">

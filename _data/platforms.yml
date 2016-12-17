@@ -1,0 +1,6 @@
+- name: .Net Framework >= 4.5
+- name: Windows 8 / 8.1 / 10 / UWP
+- name: ASP.NET Core 1.0
+- name: Xamarin Android
+- name: Xamarin iOS
+- name: Windows Phone 8.1

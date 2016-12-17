@@ -1,0 +1,23 @@
+- title: Full Trakt.tv API Coverage
+  summary: You can use every available and <a href="http://docs.trakt.apiary.io/" target="_blank">documented</a> Trakt.tv API request.
+  octicon: octicon-check
+
+- title: Authentication Support
+  summary: The library makes it easy to authenticate your users either with OAuth- or with Device-Authentication.
+  octicon: octicon-shield
+
+- title: Completely asynchronous
+  summay: Every API request is executed asynchronously and does not block your application UI.
+  octicon: octicon-zap
+
+- title: API Environments
+  summary: Both production and sandbox environment of the Trakt.tv API are supported.
+  octicon: octicon-git-branch
+
+- title: Serialization Service
+  summary: Get the user's current OAuth authorization as JSON with the builtin serialization service and save it for later usage.
+  octicon: octicon-file
+
+- title: Language Service
+  summary: The builtin language service makes it easy to lookup the language and country names for language and country codes returned by the Trakt.tv API.
+  octicon: octicon-globe
