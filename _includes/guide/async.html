@@ -1,0 +1,18 @@
+<a name="async"></a><h4><b>Async</b></h4>
+<p>Almost every library method runs asynchronously. Every method, that runs asynchronously, has the suffix <b>Async</b>.<br />
+The common syntax for calling library methods is the following:
+
+{% highlight csharp %}
+var result = await client.[ModuleName].[MethodName]Async([parameters]);
+
+// or
+
+var task = client.[ModuleName].[MethodName]Async([parameters]);
+var result = await task;
+
+// or, without result
+
+await client.[ModuleName].[MethodName]Async([parameters]);
+{% endhighlight %}
+
+<br />

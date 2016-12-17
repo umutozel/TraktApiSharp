@@ -1,0 +1,138 @@
+<a name="auth"></a><h4><b>Authentication</b></h4>
+<p>Authentication is necessary, if you need to call Trakt API requests, that require OAuth authorization.<br />
+Every method in the library, that requires OAuth authorization, indicates this in its method documentation.<br /><br />
+The Trakt API provides <a href="http://docs.trakt.apiary.io/#reference/authentication-oauth" target="_blank">two</a> <a href="http://docs.trakt.apiary.io/#reference/authentication-devices" target="_blank">methods</a> for authenticating users
+and both are supported by TraktApiSharp. See <a href="#oauth-auth">here</a> and <a href="#device-auth">here</a> for more information.</p>
+<br />
+<a name="auth-token"></a><h5><b>Authorization</b></h5>
+<p>Authorization information for the Trakt API contains not only the access token, but also a refresh token,
+that makes it possible to retrieve new authorization information without authenticating the user again and without the need of the user to interact.<br /><br />
+The <code>TraktAuthorization</code> class represents such authorization information. It also contains the UTC datetime, when it was created and can tell you, if it is expired and if the containing authorization information can be <a href="#auth-refresh">refreshed</a>.<br />
+You can get a new <code>TraktAuthorization</code> instance by authenticating the user either with <a href="#oauth-auth">OAuth</a>- or <a href="#device-auth">Device</a>-Authentication.<br />
+If you already have an access token (and optionally a refresh token), you can create a new <code>TraktAuthorization</code> instance in one of the following ways:
+
+{% highlight csharp %}
+var authorization = TraktAuthorization.CreateWith("existing access token");
+
+// or
+
+var authorization = TraktAuthorization.CreateWith("existing access token", "existing refresh token");
+
+// or,
+// if you also have the datetime, when the authorization was created
+// and the value, after which the authorization expires
+
+var createdAt = DateTime.Now.AddDays(-30); // 30 days ago
+var expiresInSeconds = 3600 * 24 * 90 // 90 days (default value), has to be in seconds
+
+var authorization = TraktAuthorization.CreateWith(createdAt, expiresInSeconds, "existing access token");
+var authorization = TraktAuthorization.CreateWith(createdAt, expiresInSeconds, "existing access token", "existing refresh token");
+
+// or
+
+var authorization = TraktAuthorization.CreateWith(expiresInSeconds, "existing access token");
+var authorization = TraktAuthorization.CreateWith(expiresInSeconds, "existing access token", "existing refresh token");
+
+// or
+
+var authorization = TraktAuthorization.CreateWith(createdAt, "existing access token");
+var authorization = TraktAuthorization.CreateWith(createdAt, "existing access token", "existing refresh token");
+{% endhighlight %}
+
+And then just pass it to your <code>TraktClient</code> instance:
+
+{% highlight csharp %}
+client.Authorization = authorization;
+{% endhighlight %}
+
+<br />
+
+<a name="oauth-auth"></a><h5><b>OAuth Authentication</b></h5>
+<p>The workflow for authenticating users with the <a href="http://docs.trakt.apiary.io/#reference/authentication-oauth" target="_blank">traditional OAuth method</a> is the following:<br />
+1. Create an authorization URL:
+
+{% highlight csharp %}
+string authorizationUrl = client.OAuth.CreateAuthorizationUrl();
+{% endhighlight %}
+
+2. Your users need to visit the <code>authorizationUrl</code>'s webpage.<br />
+3. Your users need to provide you a PIN code that they get from Trakt.tv.<br />
+4. Get authorization with the PIN code provided by your users:
+
+{% highlight csharp %}
+string code = "12345678"; // PIN code from your users
+TraktAuthorization authorization = await client.OAuth.GetAuthorizationAsync(code);
+
+// or
+
+client.Authentication.OAuthAuthorizationCode = code;
+TraktAuthorization authorization = await client.OAuth.GetAuthorizationAsync();
+{% endhighlight %}
+
+<strong>Note: You don't need to pass the returned <code>TraktAuthorization</code> to your <code>TraktClient</code> instance. This happens automatically inside the library.</strong><br />
+<strong>Note: A <code>TraktAuthenticationOAuthException</code> will be thrown, if the code provided by your users is invalid.</strong><br /><br />
+<a href="https://github.com/henrikfroehling/TraktApiSharp/blob/master/Examples/Authentication/TraktOAuthAuthenticationExample/OAuthAuthentication.cs" target="_blank">Here</a> is an example of how to authenticate an user with OAuth Authentication.</p>
+<br />
+
+<a name="device-auth"></a><h5><b>Device Authentication</b></h5>
+<p>The workflow for authenticating users with the <a href="http://docs.trakt.apiary.io/#reference/authentication-devices" target="_blank">Device method</a> is the following:<br />
+1. Create a new <code>TraktDevice</code>:
+
+{% highlight csharp %}
+TraktDevice device = await client.DeviceAuth.GenerateDeviceAsync();
+{% endhighlight %}
+
+The returned <code>TraktDevice</code> is valid for about ten minutes and contains a device code and a verification URL.<br />
+2. Your users need to visit the <code>device.VerificationUrl</code>'s webpage and to enter the <code>device.UserCode</code> on that webpage.<br />
+3. Simultanously you need to poll for the new authorization. This process will stop as soon as your users have authenticated your application. But the process will not take any longer than 10 minutes.
+If your users have not authenticated your application after the given time period, you need to start over the whole process as of step (1).
+
+{% highlight csharp %}
+TraktAuthorization authorization = await client.DeviceAuth.PollForAuthorizationAsync();
+{% endhighlight %}
+
+<strong>Note: You don't need to pass the returned <code>TraktAuthorization</code> to your <code>TraktClient</code> instance. This happens automatically inside the library.</strong><br />
+<strong>Note: A <code>TraktAuthenticationDeviceException</code> will be thrown, if <code>PollForAuthorizationAsync()</code> fails.</strong><br /><br />
+<a href="https://github.com/henrikfroehling/TraktApiSharp/blob/master/Examples/Authentication/TraktDeviceAuthenticationExample/DeviceAuthentication.cs" target="_blank">Here</a> is an example of how to authenticate an user with Device Authentication.</p>
+<br />
+
+<a name="auth-refresh"></a><h5><b>Refresh Authentication</b></h5>
+<p>The Trakt authorization information will be valid for about 90 days for each one of your users. You need to refresh the authorization, before the current one expires.
+Your <code>TraktAuthorization</code> needs to have a valid refresh token set. You can check this with its property <code>IsRefreshPossible</code>.<br />
+The <code>TraktAuthorization</code> class has the property <code>IsExpired</code>, that tells you if it is expired.<br />
+To check, if an authorization was revoked by the user, you can call the following method:
+
+{% highlight csharp %}
+bool expiredOrRevoked = await client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync();
+
+// or
+
+TraktAuthorization yourAuthorization = TraktAuthorization.CreateWith("access token");
+bool expiredOrRevoked = await client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync(yourAuthorization);
+{% endhighlight %}
+
+Alternatively, you can directly check an access token:
+
+{% highlight csharp %}
+string myAccessToken = "access token";
+bool revoked = await client.Authentication.CheckIfAccessTokenWasRevokedOrIsNotValidAsync(myAccessToken);
+{% endhighlight %}
+
+To actually refresh the current authorization, simply call the following method:
+
+{% highlight csharp %}
+TraktAuthorization newAuthorization = await client.DeviceAuth.RefreshAuthorizationAsync();
+{% endhighlight %}
+
+<strong>Note: You don't need to pass the returned <code>TraktAuthorization</code> to your <code>TraktClient</code> instance. This happens automatically inside the library.</strong></p>
+<br />
+
+<a name="auth-revoke"></a><h5><b>Revoke Authentication</b></h5>
+<p>Revoking the current authorization is also very simple:
+
+{% highlight csharp %}
+await client.DeviceAuth.RevokeAuthorizationAsync();
+{% endhighlight %}
+
+<strong>Note: After a successful call to <code>RevokeAuthorizationAsync()</code>, <code>TraktClient.Authorization</code> will return a default and invalid <code>TraktAuthorization</code> instance.</strong></p>
+<br />

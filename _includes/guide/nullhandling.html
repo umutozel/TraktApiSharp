@@ -1,0 +1,15 @@
+<a name="nullables"></a><h4><b>Null Handling</b></h4>
+<p>The Trakt API might not return all data, especially not, when you are using <a href="#params-extended">extended info</a>.<br />
+Therefore, you should check object properties, if they are null or not.
+
+{% highlight csharp %}
+var user = client.Users.GetUserProfileAsync("username");
+var userAvatarUrl = user.Images?.Avatar?.Full;  // will be null
+
+// with images
+
+var user = client.Users.GetUserProfileAsync("username", new TraktExtendedInfo { Images = true });
+var userAvatarUrl = user.Images?.Avatar?.Full;  // could be null
+{% endhighlight %}
+
+<br />

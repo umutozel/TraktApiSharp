@@ -1,0 +1,13 @@
+<a name="config"></a><h4><b>Configuration</b></h4>
+<p>The TraktApiSharp library allows you to use the sandbox environment of the Trakt API, which is disabled by default:
+
+{% highlight csharp %}
+client.Configuration.UseStagingUrl = true;
+{% endhighlight %}
+
+Some API requests support optional OAuth authorization. The library calls these requests without OAuth authorization.<br />
+But you can enforce the library to call these requests with OAuth authorization with the following setting:
+
+{% highlight csharp %}
+client.Configuration.ForceAuthorization = true;
+{% endhighlight %}

@@ -1,0 +1,34 @@
+<a name="exceptions"></a><h4><b>Exception Handling</b></h4>
+<p>TraktApiSharp uses exceptions extensively. Every exception in the library inherits by <code>TraktException</code>.<br />
+That means, you don't need to catch every single exception thrown by TraktApiSharp, only <code>TraktException</code>:
+
+{% highlight csharp %}
+try
+{
+    var result = await client.[ModuleName].[MethodName]Async([parameters]);
+}
+catch (TraktException ex)
+{
+    Console.WriteLine($"Exception message: {ex.Message}");
+    Console.WriteLine($"Status code: {ex.StatusCode}");
+    Console.WriteLine($"Request URL: {ex.RequestUrl}");                     // could be null
+    Console.WriteLine($"Request message: {ex.RequestBody}");                // could be null
+    Console.WriteLine($"Request response: {ex.Response}");                  // could be null
+    Console.WriteLine($"Server Reason Phrase: {ex.ServerReasonPhrase}");    // could be null
+}
+{% endhighlight %}
+
+Other exceptions, you need to be aware of, are <code>ArgumentNullException</code>, <code>ArgumentException</code>
+and occasionally <code>ArgumentOutOfRangeException</code>. As the names suggest, they are only thrown, if you pass invalid parameters to the library methods.<br /><br />
+<strong>Note: TraktApiSharp checks all input parameters before any actual Trakt API request is made.</strong><br />
+This means, that you will get one of the <code>Argument...</code> exceptions before a <code>TraktException</code>.<br /><br />
+For every possible Trakt media object (show, movie, person, etc.), there is also an exception, if the object was not found, e.g. a call to
+
+{% highlight csharp %}
+var show = client.Shows.GetShowAsync("unknown-slug");
+{% endhighlight %}
+
+could throw a <code>TraktShowNotFoundException</code>.<br />
+Each <code>Trakt[Object]NotFoundException</code> has a property <code>ObjectId</code>, that tells you the id, which was not found.<br /><br />
+If no exception was thrown, you can consider, that the method call was successful. But you should always check the return value, if it is <a href="#nullables">not null</a>.</p>
+<br />

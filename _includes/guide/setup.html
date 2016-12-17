@@ -1,0 +1,53 @@
+<a name="setup"></a><h4><b>Basic Setup</b></h4>
+<p>The main entry point to the library is an <code>TraktClient</code> instance.
+There are three different ways to create a new instance of it and which way to choose depends on how you want to use the library.<br /><br />
+If you just want to use requests, which do not require OAuth authorization of <a href="https://trakt.tv" target="_blank">Trakt.tv</a>,
+you will only have to provide the client id of your <a href="https://trakt.tv/oauth/applications" target="_blank">Trakt application</a>:
+
+{% highlight csharp %}
+var client = new TraktClient("Your Trakt Client Id");
+
+// or
+
+var client = new TraktClient
+{
+    ClientId = "Your Trakt Client Id"
+};
+{% endhighlight %}
+
+If you also want to <a href="#auth">authenticate</a> your application users, the client secret of your <a href="https://trakt.tv/oauth/applications" target="_blank">Trakt application</a>
+will also be needed additionally:
+
+{% highlight csharp %}
+var client = new TraktClient("Your Trakt Client Id", "Your Trakt Client Secret");
+
+// or
+
+var client = new TraktClient
+{
+    ClientId = "Your Trakt Client Id",
+    ClientSecret = "Your Trakt Client Secret"
+};
+{% endhighlight %}
+
+If you want to use requests, which do require OAuth authorization, you will also have to provide an OAuth access token.
+Read the <a href="#auth">Authentication section</a> on how to get a new Trakt.tv OAuth authorization, including access token and refresh token,
+or provide an existing access token:
+
+{% highlight csharp %}
+var client = new TraktClient("Your Trakt Client Id", "Your Trakt Client Secret")
+{
+    Authorization = TraktAuthorization.CreateWith("An existing access token")
+};
+
+// or
+
+var client = new TraktClient
+{
+    ClientId = "Your Trakt Client Id",
+    ClientSecret = "Your Trakt Client Secret",
+    Authorization = TraktAuthorization.CreateWith("An existing access token")
+};
+{% endhighlight %}
+
+<strong>Note: A client id for your <a href="https://trakt.tv/oauth/applications" target="_blank">Trakt application</a> will always be needed.</strong></p>
