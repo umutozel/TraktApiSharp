@@ -10,6 +10,12 @@
     <meta name="description" content="{{ site.description }}.">
     <meta name="keywords" content="{{ site.title }},Trakt,C#,CSharp,VB,Visual Basic,Sharp,REST,API,.NET,NuGet,Library,Wrapper{% if page.keywords %},{{ page.keywords}}{% endif %}">
 
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{% if page.title %}{{ page.title}} · {% endif %}{{ site.title }}" />
+    <meta property="og:url" content="{{ site.baseurl }}/{{ page.url }}" />
+    <meta property="og:site_name" content="{{ site.title }}" />
+    <meta property="og:description" content="{{ site.description }}." />
+
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@{{ site.twitter_username }}" />
     <meta name="twitter:title" content="{% if page.title %}{{ page.title}} · {% endif %}{{ site.title }}" />
