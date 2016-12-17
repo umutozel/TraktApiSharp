@@ -7,7 +7,7 @@
   octicon: octicon-shield
 
 - title: Completely asynchronous
-  summay: Every API request is executed asynchronously and does not block your application UI.
+  summary: Every API request is executed asynchronously and does not block your application UI.
   octicon: octicon-zap
 
 - title: API Environments
