@@ -6,6 +6,7 @@ twitter_username: henrikfroehling
 github_username:  henrikfroehling
 
 baseurl: "/TraktApiSharp"
+permalink: pretty
 
 # Build settings
 markdown: kramdown
