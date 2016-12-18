@@ -1,0 +1,14 @@
+<url>
+    <loc>https://henrikfroehling.github.io{{ site.baseurl }}{{ include.entry.url }}</loc>
+    {% if include.entry.changeFreq %}
+    <changefreq>{{ include.entry.changeFreq }}</changefreq>
+    {% else %}
+    <changefreq>monthly</changefreq>
+    {% endif %}
+
+    {% if include.entry.priority %}
+    <priority>{{ include.entry.priority }}</priority>
+    {% else %}
+    <priority>1.0</priority>
+    {% endif %}
+</url>
