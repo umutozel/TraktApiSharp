@@ -21,6 +21,15 @@
     <meta name="twitter:title" content="{% if page.title %}{{ page.title}} · {% endif %}{{ site.title }}" />
     <meta name="twitter:description" content="{{ site.meta_description }}." />
 
+    <script type='application/ld+json'> 
+    {
+      "@context": "http://www.schema.org",
+      "@type": "WebSite",
+      "name": "{{ site.title }}",
+      "url": "{{ site.baseurl | prepend: 'https://henrikfroehling.github.io' }}/"
+    }
+    </script>
+
     {% include css.html %}
 
   </head>
