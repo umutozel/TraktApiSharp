@@ -50,6 +50,15 @@ layout: default
                 <p class="text-center">
                     <small>Open Source and free under the <a href="https://raw.githubusercontent.com/henrikfroehling/TraktApiSharp/master/LICENSE" target="_blank"><span class="octicon octicon-law"></span></i> MIT License</a></small>
                 </p>
+                <p class="text-center small-text">
+                {% for download in site.data.downloads %}
+                    {% if download.latest_stable %}
+                        Latest Version {{ download.version }}
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://henrikfroehling.github.io/TraktApiSharp/" data-text="TraktApiSharp Version {{ download.version }}" data-via="henrikfroehling" data-hashtags="TraktApiSharp">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                        {% break %}
+                    {% endif %}
+                {% endfor %}
+                </p>
             </div>
         </div>
     </div>
