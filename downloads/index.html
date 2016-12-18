@@ -15,16 +15,19 @@ changeFreq: weekly
                 All checksums are SHA256 checksums.
             </p>
 
-            <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Versions <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                {% for download in site.data.downloads %}
-                    <li><a href="#v{{ download.version }}">Version {{ download.version }}{% if download.latest_stable %} (Latest Stable){% endif %}</a></li>
-                {% endfor %}
-                </ul>
-            </div><br />
+            <div class="btn-group" role="group">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Version <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                    {% for download in site.data.downloads %}
+                        <li><a href="#v{{ download.version }}">Version {{ download.version }}{% if download.latest_stable %} (Latest Stable){% endif %}</a></li>
+                    {% endfor %}
+                    </ul>
+                </div>
+                <a class="btn btn-default" role="button" href="{{ site.baseurl | prepend: 'https://henrikfroehling.github.io' }}/feed.xml" target="_blank"><span class="octicon octicon-rss" width="32" height="32"> RSS</span></a>
+            </div>
 
             {% for download in site.data.downloads %}
                 <div class="panel panel-primary">
