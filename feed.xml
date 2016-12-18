@@ -1,0 +1,78 @@
+---
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>TraktApiSharp - Releases</title>
+        <description>All library releases of TraktApiSharp.</description>
+        <link>{{ site.baseurl | prepend: 'https://henrikfroehling.github.io' }}/</link>
+        {% for download in site.data.downloads %}
+            {% if download.final %}
+                {% capture version %}{{ download.version }} Stable Release{% endcapture %}
+                <item>
+                    <title>NuGet Version {{ version }}</title>
+                    <description>NuGet Package for Version {{ version }}</description>
+                    <pubDate>{{ download.final.releaseDate }}</pubDate>
+                    <link>{{ download.final.nuget.url }}</link>
+                </item>
+                <item>
+                    <title>ZIP Version {{ version }}</title>
+                    <description>ZIP Archive for Version {{ version }}</description>
+                    <pubDate>{{ download.final.releaseDate }}</pubDate>
+                    <link>{{ download.final.zip.url }}</link>
+                </item>
+            {% endif %}
+            {% if download.rc %}
+                {% for releasecandidate in download.rc %}
+                    {% capture version %}{{ download.version }} RC {{ releasecandidate.nr }}{% endcapture %}
+                    <item>
+                        <title>NuGet Version {{ version }}</title>
+                        <description>NuGet Package for Version {{ version }}</description>
+                        <pubDate>{{ releasecandidate.releaseDate }}</pubDate>
+                        <link>{{ releasecandidate.nuget.url }}</link>
+                    </item>
+                    <item>
+                        <title>ZIP Version {{ version }}</title>
+                        <description>ZIP Archive for Version {{ version }}</description>
+                        <pubDate>{{ releasecandidate.releaseDate }}</pubDate>
+                        <link>{{ releasecandidate.zip.url }}</link>
+                    </item>
+                {% endfor %}
+            {% endif %}
+            {% if download.beta %}
+                {% for betarelease in download.beta %}
+                    {% capture version %}{{ download.version }} Beta {{ betarelease.nr }}{% endcapture %}
+                    <item>
+                        <title>NuGet Version {{ version }}</title>
+                        <description>NuGet Package for Version {{ version }}</description>
+                        <pubDate>{{ betarelease.releaseDate }}</pubDate>
+                        <link>{{ betarelease.nuget.url }}</link>
+                    </item>
+                    <item>
+                        <title>ZIP Version {{ version }}</title>
+                        <description>ZIP Archive for Version {{ version }}</description>
+                        <pubDate>{{ betarelease.releaseDate }}</pubDate>
+                        <link>{{ betarelease.zip.url }}</link>
+                    </item>
+                {% endfor %}
+            {% endif %}
+            {% if download.alpha %}
+                {% for alpharelease in download.alpha %}
+                    {% capture version %}{{ download.version }} Alpha {{ alpharelease.nr }}{% endcapture %}
+                    <item>
+                        <title>NuGet Version {{ version }}</title>
+                        <description>NuGet Package for Version {{ version }}</description>
+                        <pubDate>{{ alpharelease.releaseDate }}</pubDate>
+                        <link>{{ alpharelease.nuget.url }}</link>
+                    </item>
+                    <item>
+                        <title>ZIP Version {{ version }}</title>
+                        <description>ZIP Archive for Version {{ version }}</description>
+                        <pubDate>{{ alpharelease.releaseDate }}</pubDate>
+                        <link>{{ alpharelease.zip.url }}</link>
+                    </item>
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </channel>
+</rss>

@@ -3,6 +3,7 @@
         "version": "0.8.0",
         "latest_stable": true,
         "final": {
+            "releaseDate": "2016-12-11",
             "nuget": {
                 "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.8.0/TraktApiSharp.0.8.0.nupkg",
                 "size": "530 KB",
@@ -19,6 +20,7 @@
         "version": "0.7.0",
         "latest_stable": false,
         "final": {
+            "releaseDate": "2016-11-13",
             "nuget": {
                 "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.7.0/TraktApiSharp.0.7.0.nupkg",
                 "size": "510 KB",
@@ -35,6 +37,7 @@
         "version": "0.6.0",
         "latest_stable": false,
         "final": {
+            "releaseDate": "2016-10-23",
             "nuget": {
                 "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.6.0/TraktApiSharp.0.6.0.nupkg",
                 "size": "505 KB",
@@ -51,6 +54,7 @@
         "version": "0.5.1",
         "latest_stable": false,
         "final": {
+            "releaseDate": "2016-10-07",
             "nuget": {
                 "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.5.1/TraktApiSharp.0.5.1.nupkg",
                 "size": "503 KB",
@@ -67,6 +71,7 @@
         "version": "0.5.0",
         "latest_stable": false,
         "final": {
+            "releaseDate": "2016-10-05",
             "nuget": {
                 "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.5.0/TraktApiSharp.0.5.0.nupkg",
                 "size": "502 KB",
@@ -83,6 +88,7 @@
         "version": "0.4.0",
         "latest_stable": false,
         "final": {
+            "releaseDate": "2016-09-14",
             "nuget": {
                 "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.4.0/TraktApiSharp.0.4.0.nupkg",
                 "size": "499 KB",
@@ -99,6 +105,7 @@
         "version": "0.3.2",
         "latest_stable": false,
         "final": {
+            "releaseDate": "2016-09-07",
             "nuget": {
                 "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.3.2/TraktApiSharp.0.3.2.nupkg",
                 "size": "497 KB",
@@ -115,6 +122,7 @@
         "version": "0.3.1",
         "latest_stable": false,
         "final": {
+            "releaseDate": "2016-08-30",
             "nuget": {
                 "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.3.1/TraktApiSharp.0.3.1.nupkg",
                 "size": "497 KB",
@@ -131,6 +139,7 @@
         "version": "0.3.0",
         "latest_stable": false,
         "final": {
+            "releaseDate": "2016-08-24",
             "nuget": {
                 "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.3.0/TraktApiSharp.0.3.0.nupkg",
                 "size": "497 KB",
@@ -147,6 +156,7 @@
         "version": "0.2.0",
         "latest_stable": false,
         "final": {
+            "releaseDate": "2016-07-29",
             "nuget": {
                 "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.2.0/TraktApiSharp.0.2.0.nupkg",
                 "size": "463 KB",
@@ -161,6 +171,7 @@
         "beta": [
             {
                 "nr": 2,
+                "releaseDate": "2016-07-21",
                 "nuget": {
                     "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.2.0-beta2/TraktApiSharp.0.2.0-beta2.nupkg",
                     "size": "434 KB",
@@ -174,6 +185,7 @@
             },
             {
                 "nr": 1,
+                "releaseDate": "2016-07-11",
                 "nuget": {
                     "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.2.0-beta1/TraktApiSharp.0.2.0-beta1.nupkg",
                     "size": "403 KB",
@@ -191,6 +203,7 @@
         "version": "0.1.1",
         "latest_stable": false,
         "final": {
+            "releaseDate": "2016-07-09",
             "nuget": {
                 "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.1.1/TraktApiSharp.0.1.1.nupkg",
                 "size": "383 KB",
@@ -207,6 +220,7 @@
         "version": "0.1.0",
         "latest_stable": false,
         "final": {
+            "releaseDate": "2016-06-27",
             "nuget": {
                 "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.1.0/TraktApiSharp.0.1.0.nupkg",
                 "size": "383 KB",
@@ -221,6 +235,7 @@
         "rc": [
             {
                 "nr": 1,
+                "releaseDate": "2016-06-23",
                 "nuget": {
                     "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.1.0-rc/TraktApiSharp.0.1.0-rc.nupkg",
                     "size": "391 KB",
@@ -236,6 +251,7 @@
         "beta": [
             {
                 "nr": 4,
+                "releaseDate": "2016-06-08",
                 "nuget": {
                     "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.1.0-beta04/TraktApiSharp.0.1.0-beta04.nupkg",
                     "size": "386 KB",
@@ -249,6 +265,7 @@
             },
             {
                 "nr": 3,
+                "releaseDate": "2016-06-04",
                 "nuget": {
                     "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.1.0-beta03/TraktApiSharp.0.1.0-beta03.nupkg",
                     "size": "381 KB",
@@ -262,6 +279,7 @@
             },
             {
                 "nr": 2,
+                "releaseDate": "2016-05-27",
                 "nuget": {
                     "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.1.0-beta02/TraktApiSharp.0.1.0-beta02.nupkg",
                     "size": "376 KB",
@@ -275,6 +293,7 @@
             },
             {
                 "nr": 1,
+                "releaseDate": "2016-05-26",
                 "nuget": {
                     "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.1.0-beta01/TraktApiSharp.0.1.0-beta01.nupkg",
                     "size": "377 KB",
@@ -290,6 +309,7 @@
         "alpha": [
             {
                 "nr": 5,
+                "releaseDate": "2016-05-15",
                 "nuget": {
                     "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.1.0-alpha05/TraktApiSharp.0.1.0-alpha05.nupkg",
                     "size": "355 KB",
@@ -303,6 +323,7 @@
             },
             {
                 "nr": 4,
+                "releaseDate": "2016-05-15",
                 "nuget": {
                     "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.1.0-alpha04/TraktApiSharp.0.1.0-alpha04.nupkg",
                     "size": "351 KB",
@@ -316,6 +337,7 @@
             },
             {
                 "nr": 3,
+                "releaseDate": "2016-04-28",
                 "nuget": {
                     "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.1.0-alpha03/TraktApiSharp.0.1.0-alpha03.nupkg",
                     "size": "312 KB",
@@ -329,6 +351,7 @@
             },
             {
                 "nr": 2,
+                "releaseDate": "2016-04-26",
                 "nuget": {
                     "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.1.0-alpha02/TraktApiSharp.0.1.0-alpha02.nupkg",
                     "size": "313 KB",
@@ -342,6 +365,7 @@
             },
             {
                 "nr": 1,
+                "releaseDate": "2016-04-22",
                 "nuget": {
                     "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.1.0-alpha01/TraktApiSharp.0.1.0-alpha01.nupkg",
                     "size": "312 KB",
