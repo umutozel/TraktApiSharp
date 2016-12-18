@@ -2,7 +2,9 @@
 title: TraktApiSharp
 author: Henrik Fröhling
 email: henrik.froehling@gmail.com
-description: A .NET wrapper library for the Trakt.tv API
+meta_description: TraktApiSharp is a .NET library, written in C#, which makes it easy to use the Trakt.tv API
+title_description: A .NET library for the Trakt.tv API
+keywords: Trakt,C#,CSharp,VB,Visual Basic,Sharp,REST,API,.NET,NuGet,Library,Wrapper
 twitter_username: henrikfroehling
 github_username:  henrikfroehling
 
