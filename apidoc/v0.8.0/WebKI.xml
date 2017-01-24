@@ -929,15 +929,15 @@
     <HelpKINode Title="TraktShow.Images Property " Url="html/P_TraktApiSharp_Objects_Get_Shows_TraktShow_Images.htm" />
     <HelpKINode Title="TraktUser.Images Property " Url="html/P_TraktApiSharp_Objects_Get_Users_TraktUser_Images.htm" />
   </HelpKINode>
-  <HelpKINode Title="Imdb property">
-    <HelpKINode Title="TraktEpisodeIds.Imdb Property " Url="html/P_TraktApiSharp_Objects_Get_Shows_Episodes_TraktEpisodeIds_Imdb.htm" />
-    <HelpKINode Title="TraktIds.Imdb Property " Url="html/P_TraktApiSharp_Objects_Basic_TraktIds_Imdb.htm" />
-    <HelpKINode Title="TraktMovieIds.Imdb Property " Url="html/P_TraktApiSharp_Objects_Get_Movies_TraktMovieIds_Imdb.htm" />
-    <HelpKINode Title="TraktPersonIds.Imdb Property " Url="html/P_TraktApiSharp_Objects_Get_People_TraktPersonIds_Imdb.htm" />
-  </HelpKINode>
   <HelpKINode Title="ImDB property">
     <HelpKINode Title="TraktSearchIdType.ImDB Property " Url="html/P_TraktApiSharp_Enums_TraktSearchIdType_ImDB.htm" />
     <HelpKINode Title="TraktSearchIdLookupType.ImDB Property " Url="html/P_TraktApiSharp_Enums_TraktSearchIdLookupType_ImDB.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Imdb property">
+    <HelpKINode Title="TraktMovieIds.Imdb Property " Url="html/P_TraktApiSharp_Objects_Get_Movies_TraktMovieIds_Imdb.htm" />
+    <HelpKINode Title="TraktIds.Imdb Property " Url="html/P_TraktApiSharp_Objects_Basic_TraktIds_Imdb.htm" />
+    <HelpKINode Title="TraktEpisodeIds.Imdb Property " Url="html/P_TraktApiSharp_Objects_Get_Shows_Episodes_TraktEpisodeIds_Imdb.htm" />
+    <HelpKINode Title="TraktPersonIds.Imdb Property " Url="html/P_TraktApiSharp_Objects_Get_People_TraktPersonIds_Imdb.htm" />
   </HelpKINode>
   <HelpKINode Title="InProduction property" Url="html/P_TraktApiSharp_Enums_TraktShowStatus_InProduction.htm" />
   <HelpKINode Title="IntervalInSeconds property" Url="html/P_TraktApiSharp_Authentication_TraktDevice_IntervalInSeconds.htm" />
@@ -1778,16 +1778,16 @@
     <HelpKINode Title="TraktSyncWatchlistPostMovie.Title Property " Url="html/P_TraktApiSharp_Objects_Post_Syncs_Watchlist_TraktSyncWatchlistPostMovie_Title.htm" />
     <HelpKINode Title="TraktSyncWatchlistPostShow.Title Property " Url="html/P_TraktApiSharp_Objects_Post_Syncs_Watchlist_TraktSyncWatchlistPostShow_Title.htm" />
   </HelpKINode>
-  <HelpKINode Title="TmDB property">
-    <HelpKINode Title="TraktSearchIdLookupType.TmDB Property " Url="html/P_TraktApiSharp_Enums_TraktSearchIdLookupType_TmDB.htm" />
-    <HelpKINode Title="TraktSearchIdType.TmDB Property " Url="html/P_TraktApiSharp_Enums_TraktSearchIdType_TmDB.htm" />
-  </HelpKINode>
   <HelpKINode Title="Tmdb property">
     <HelpKINode Title="TraktEpisodeIds.Tmdb Property " Url="html/P_TraktApiSharp_Objects_Get_Shows_Episodes_TraktEpisodeIds_Tmdb.htm" />
-    <HelpKINode Title="TraktMovieIds.Tmdb Property " Url="html/P_TraktApiSharp_Objects_Get_Movies_TraktMovieIds_Tmdb.htm" />
     <HelpKINode Title="TraktIds.Tmdb Property " Url="html/P_TraktApiSharp_Objects_Basic_TraktIds_Tmdb.htm" />
+    <HelpKINode Title="TraktMovieIds.Tmdb Property " Url="html/P_TraktApiSharp_Objects_Get_Movies_TraktMovieIds_Tmdb.htm" />
     <HelpKINode Title="TraktPersonIds.Tmdb Property " Url="html/P_TraktApiSharp_Objects_Get_People_TraktPersonIds_Tmdb.htm" />
     <HelpKINode Title="TraktSeasonIds.Tmdb Property " Url="html/P_TraktApiSharp_Objects_Get_Shows_Seasons_TraktSeasonIds_Tmdb.htm" />
+  </HelpKINode>
+  <HelpKINode Title="TmDB property">
+    <HelpKINode Title="TraktSearchIdType.TmDB Property " Url="html/P_TraktApiSharp_Enums_TraktSearchIdType_TmDB.htm" />
+    <HelpKINode Title="TraktSearchIdLookupType.TmDB Property " Url="html/P_TraktApiSharp_Enums_TraktSearchIdLookupType_TmDB.htm" />
   </HelpKINode>
   <HelpKINode Title="TokenType property" Url="html/P_TraktApiSharp_Authentication_TraktAuthorization_TokenType.htm" />
   <HelpKINode Title="ToString method">
@@ -5886,13 +5886,13 @@
   <HelpKINode Title="Tumblr property" Url="html/P_TraktApiSharp_Objects_Basic_TraktSharing_Tumblr.htm" />
   <HelpKINode Title="TV property" Url="html/P_TraktApiSharp_Enums_TraktReleaseType_TV.htm" />
   <HelpKINode Title="Tvdb property">
+    <HelpKINode Title="TraktEpisodeIds.Tvdb Property " Url="html/P_TraktApiSharp_Objects_Get_Shows_Episodes_TraktEpisodeIds_Tvdb.htm" />
     <HelpKINode Title="TraktIds.Tvdb Property " Url="html/P_TraktApiSharp_Objects_Basic_TraktIds_Tvdb.htm" />
     <HelpKINode Title="TraktSeasonIds.Tvdb Property " Url="html/P_TraktApiSharp_Objects_Get_Shows_Seasons_TraktSeasonIds_Tvdb.htm" />
-    <HelpKINode Title="TraktEpisodeIds.Tvdb Property " Url="html/P_TraktApiSharp_Objects_Get_Shows_Episodes_TraktEpisodeIds_Tvdb.htm" />
   </HelpKINode>
   <HelpKINode Title="TvDB property">
-    <HelpKINode Title="TraktSearchIdLookupType.TvDB Property " Url="html/P_TraktApiSharp_Enums_TraktSearchIdLookupType_TvDB.htm" />
     <HelpKINode Title="TraktSearchIdType.TvDB Property " Url="html/P_TraktApiSharp_Enums_TraktSearchIdType_TvDB.htm" />
+    <HelpKINode Title="TraktSearchIdLookupType.TvDB Property " Url="html/P_TraktApiSharp_Enums_TraktSearchIdLookupType_TvDB.htm" />
   </HelpKINode>
   <HelpKINode Title="TvRage property">
     <HelpKINode Title="TraktEpisodeIds.TvRage Property " Url="html/P_TraktApiSharp_Objects_Get_Shows_Episodes_TraktEpisodeIds_TvRage.htm" />
