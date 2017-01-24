@@ -15,7 +15,12 @@ changeFreq: weekly
             <p><div class="table-responsive"><table class="table table-striped table-bordered table-hover">
             {% for apidoc in site.data.apidocs %}
                 <tr>
+                    {% if apidoc.archived %}
+                    <td><a href="https://github.com/henrikfroehling/TraktApiSharp/releases/download/v{{ apidoc.version }}/TraktApiSharp-Documentation-v{{ apidoc.version }}.zip" target="_blank">Version {{ apidoc.version }} (Download)</a></td>
+                    {% else %}
                     <td><a href="{{ site.baseurl }}/apidoc/v{{ apidoc.version }}/" target="_blank">Version {{ apidoc.version }}</a></td>
+                    {% endif %}
+                    
                     <td><a href="https://github.com/henrikfroehling/TraktApiSharp/blob/master/Changelog.md#{{ apidoc.short }}" target="_blank">Changelog</a></td>
                 </tr>
             {% endfor %}

@@ -1,24 +1,39 @@
+- version: "0.9.0"
+  short: "090"
+  archived: false
 - version: "0.8.0"
   short: "080"
+  archived: false
 - version: "0.7.0"
   short: "070"
+  archived: false
 - version: "0.6.0"
   short: "060"
+  archived: false
 - version: "0.5.1"
   short: "051"
+  archived: true
 - version: "0.5.0"
   short: "050"
+  archived: true
 - version: "0.4.0"
   short: "040"
+  archived: true
 - version: "0.3.2"
   short: "032"
+  archived: true
 - version: "0.3.1"
   short: "031"
+  archived: true
 - version: "0.3.0"
   short: "030"
+  archived: true
 - version: "0.2.0"
   short: "020"
+  archived: true
 - version: "0.1.1"
   short: "011"
+  archived: true
 - version: "0.1.0"
   short: "010"
+  archived: true
