@@ -20,8 +20,6 @@
 
         public string Url { get; set; }
 
-        public TraktAuthorizationRequirement? AuthorizationRequirement { get; set; }
-
         public TraktRequestObjectType? RequestObjectType { get; set; }
 
         public string RequestBodyJson { get; set; }

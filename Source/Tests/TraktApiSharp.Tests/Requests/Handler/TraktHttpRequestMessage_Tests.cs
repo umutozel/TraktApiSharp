@@ -96,19 +96,6 @@
         }
 
         [Fact]
-        public void Test_TraktHttpRequestMessage_Has_AuthorizationRequirement_Property()
-        {
-            var propertyInfo = typeof(TraktHttpRequestMessage)
-                    .GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance)
-                    .Where(p => p.Name == "AuthorizationRequirement")
-                    .FirstOrDefault();
-
-            propertyInfo.CanRead.Should().BeTrue();
-            propertyInfo.CanWrite.Should().BeTrue();
-            propertyInfo.PropertyType.Should().Be(typeof(TraktAuthorizationRequirement?));
-        }
-
-        [Fact]
         public void Test_TraktHttpRequestMessage_Has_RequestBodyJson_Property()
         {
             var propertyInfo = typeof(TraktHttpRequestMessage)
