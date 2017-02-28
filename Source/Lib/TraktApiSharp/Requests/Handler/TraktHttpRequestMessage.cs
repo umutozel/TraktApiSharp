@@ -20,6 +20,8 @@
 
         public string Url { get; set; }
 
+        public bool IsUsersGetRequestWithOptionalOAuth { get; set; }
+
         public TraktRequestObjectType? RequestObjectType { get; set; }
 
         public string RequestBodyJson { get; set; }
