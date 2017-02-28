@@ -177,15 +177,6 @@
             }
             catch (Exception ex)
             {
-                // Don't throw if request is a users get request
-                // and authorization requirement is optional
-                // and the thrown exception is of type TraktAuthorizationException
-                if (ex is TraktAuthorizationException && requestMessage.IsUsersGetRequestWithOptionalOAuth)
-                {
-                    // TODO add property in response to indicate missing / wrong relationship status between users
-                    return new TraktResponse<TContentType> { IsSuccess = false };
-                }
-
                 if (_client.Configuration.ThrowResponseExceptions)
                     throw;
 
@@ -225,15 +216,6 @@
             }
             catch (Exception ex)
             {
-                // Don't throw if request is a users get request
-                // and authorization requirement is optional
-                // and the thrown exception is of type TraktAuthorizationException
-                if (ex is TraktAuthorizationException && requestMessage.IsUsersGetRequestWithOptionalOAuth)
-                {
-                    // TODO add property in response to indicate missing / wrong relationship status between users
-                    return new TraktListResponse<TContentType> { IsSuccess = false };
-                }
-
                 if (_client.Configuration.ThrowResponseExceptions)
                     throw;
 
@@ -276,15 +258,6 @@
             }
             catch (Exception ex)
             {
-                // Don't throw if request is a users get request
-                // and authorization requirement is optional
-                // and the thrown exception is of type TraktAuthorizationException
-                if (ex is TraktAuthorizationException && requestMessage.IsUsersGetRequestWithOptionalOAuth)
-                {
-                    // TODO add property in response to indicate missing / wrong relationship status between users
-                    return new TraktPagedResponse<TContentType> { IsSuccess = false };
-                }
-
                 if (_client.Configuration.ThrowResponseExceptions)
                     throw;
 
@@ -388,11 +361,6 @@
 
             var url = BuildUrl(request);
             var requestMessage = new TraktHttpRequestMessage(request.Method, url) { Url = url };
-
-            var requestIsUsersGetRequest = request is ITraktUsersGetRequest;
-            var authorizationIsOptional = request.AuthorizationRequirement == TraktAuthorizationRequirement.Optional;
-
-            requestMessage.IsUsersGetRequestWithOptionalOAuth = requestIsUsersGetRequest && authorizationIsOptional;
 
             if (request is ITraktHasId)
             {
