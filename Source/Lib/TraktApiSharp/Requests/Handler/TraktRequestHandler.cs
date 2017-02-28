@@ -274,7 +274,17 @@
             var response = await s_httpClient.SendAsync(requestMessage).ConfigureAwait(false);
 
             if (!response.IsSuccessStatusCode)
+            {
+                var isUnauthorizedStatusCode = response.StatusCode == HttpStatusCode.Unauthorized;
+                var isClientAuthorizationValid = _client.Authentication.IsAuthorized;
+                var isUsersGetRequest = requestMessage.IsUsersGetRequest;
+
+                // Don't handle this error, if it is just a missing friend relationship
+                if (isUnauthorizedStatusCode && isClientAuthorizationValid && isUsersGetRequest)
+                    return response;
+
                 await ErrorHandlingAsync(response, requestMessage).ConfigureAwait(false);
+            }
 
             return response;
         }
