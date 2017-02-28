@@ -81,8 +81,7 @@
         public Task<TraktResponse<TContentType>> ExecuteSingleItemRequestAsync<TContentType, TRequestBody>(ITraktPostRequest<TContentType, TRequestBody> request)
         {
             PreExecuteRequest(request);
-            var isCheckinRequest = request is TraktCheckinRequest<TContentType, TRequestBody>;
-            return QuerySingleItemAsync<TContentType>(SetupRequestMessage(request), isCheckinRequest);
+            return QuerySingleItemAsync<TContentType>(SetupRequestMessage(request));
         }
 
         public Task<TraktListResponse<TContentType>> ExecuteListRequestAsync<TContentType, TRequestBody>(ITraktPostRequest<TContentType, TRequestBody> request)
@@ -149,13 +148,13 @@
             }
         }
 
-        private async Task<TraktResponse<TContentType>> QuerySingleItemAsync<TContentType>(TraktHttpRequestMessage requestMessage, bool isCheckinRequest = false)
+        private async Task<TraktResponse<TContentType>> QuerySingleItemAsync<TContentType>(TraktHttpRequestMessage requestMessage)
         {
             HttpResponseMessage responseMessage = null;
 
             try
             {
-                responseMessage = await ExecuteRequestAsync(requestMessage, isCheckinRequest).ConfigureAwait(false);
+                responseMessage = await ExecuteRequestAsync(requestMessage).ConfigureAwait(false);
                 Debug.Assert(responseMessage?.StatusCode != HttpStatusCode.NoContent, "precondition for generating single item response failed");
 
                 var responseContent = await GetResponseContentAsync(responseMessage).ConfigureAwait(false);
@@ -270,12 +269,12 @@
             }
         }
 
-        private async Task<HttpResponseMessage> ExecuteRequestAsync(TraktHttpRequestMessage requestMessage, bool isCheckinRequest = false)
+        private async Task<HttpResponseMessage> ExecuteRequestAsync(TraktHttpRequestMessage requestMessage)
         {
             var response = await s_httpClient.SendAsync(requestMessage).ConfigureAwait(false);
 
             if (!response.IsSuccessStatusCode)
-                await ErrorHandlingAsync(response, requestMessage, isCheckinRequest).ConfigureAwait(false);
+                await ErrorHandlingAsync(response, requestMessage).ConfigureAwait(false);
 
             return response;
         }
@@ -334,6 +333,7 @@
         {
             var requestMessage = CreateRequestMessage(request);
             AddRequestBodyContent(requestMessage, request);
+            requestMessage.IsCheckinRequest = request is TraktCheckinRequest<TContentType, TRequestBody>;
             SetRequestMessageHeadersForAuthorization(requestMessage, request.AuthorizationRequirement);
             return requestMessage;
         }
@@ -541,7 +541,7 @@
             }
         }
 
-        private async Task ErrorHandlingAsync(HttpResponseMessage response, TraktHttpRequestMessage requestMessage, bool isCheckinRequest = false)
+        private async Task ErrorHandlingAsync(HttpResponseMessage response, TraktHttpRequestMessage requestMessage)
         {
             var responseContent = string.Empty;
 
@@ -591,7 +591,7 @@
                         ServerReasonPhrase = reasonPhrase
                     };
                 case HttpStatusCode.Conflict:
-                    HandleConflictStatusCode(isCheckinRequest, responseContent, url, requestBodyJson, reasonPhrase);
+                    HandleConflictStatusCode(requestMessage.IsCheckinRequest, responseContent, url, requestBodyJson, reasonPhrase);
                     break;
                 case HttpStatusCode.InternalServerError:
                     throw new TraktServerException()
