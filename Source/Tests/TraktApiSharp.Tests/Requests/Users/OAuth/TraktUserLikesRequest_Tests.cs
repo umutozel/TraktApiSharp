@@ -41,6 +41,12 @@
         }
 
         [Fact]
+        public void Test_TraktUserLikesRequest_Implements_ITraktUsersGetRequest_Interface()
+        {
+            typeof(TraktUserLikesRequest).GetInterfaces().Should().Contain(typeof(ITraktUsersGetRequest));
+        }
+
+        [Fact]
         public void Test_TraktUserLikesRequest_Has_Type_Property()
         {
             var propertyInfo = typeof(TraktUserLikesRequest)

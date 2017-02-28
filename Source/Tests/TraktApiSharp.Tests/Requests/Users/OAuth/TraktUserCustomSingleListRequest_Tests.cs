@@ -40,6 +40,12 @@
         }
 
         [Fact]
+        public void Test_TraktUserCustomSingleListRequest_Implements_ITraktUsersGetRequest_Interface()
+        {
+            typeof(TraktUserCustomSingleListRequest).GetInterfaces().Should().Contain(typeof(ITraktUsersGetRequest));
+        }
+
+        [Fact]
         public void Test_TraktUserCustomSingleListRequest_Has_Username_Property()
         {
             var propertyInfo = typeof(TraktUserCustomSingleListRequest)

@@ -48,6 +48,12 @@
         }
 
         [Fact]
+        public void Test_TraktUserListCommentsRequest_Implements_ITraktUsersGetRequest_Interface()
+        {
+            typeof(TraktUserListCommentsRequest).GetInterfaces().Should().Contain(typeof(ITraktUsersGetRequest));
+        }
+
+        [Fact]
         public void Test_TraktUserListCommentsRequest_Has_AuthorizationRequirement_Not_Required()
         {
             var request = new TraktUserListCommentsRequest();

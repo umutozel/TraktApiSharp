@@ -49,6 +49,12 @@
         }
 
         [Fact]
+        public void Test_ATraktUsersGetRequest_1_Implements_ITraktUsersGetRequest_Interface()
+        {
+            typeof(ATraktUsersGetRequest<>).GetInterfaces().Should().Contain(typeof(ITraktUsersGetRequest));
+        }
+
+        [Fact]
         public void Test_ATraktUsersGetRequest_1_Has_AuthorizationRequirement_Optional()
         {
             var request = new TraktUsersGetRequestMock();

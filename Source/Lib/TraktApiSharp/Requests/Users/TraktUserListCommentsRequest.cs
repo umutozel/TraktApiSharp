@@ -8,7 +8,7 @@
     using System;
     using System.Collections.Generic;
 
-    internal sealed class TraktUserListCommentsRequest : ATraktGetRequest<TraktComment>, ITraktHasId, ITraktSupportsPagination
+    internal sealed class TraktUserListCommentsRequest : ATraktGetRequest<TraktComment>, ITraktHasId, ITraktSupportsPagination, ITraktUsersGetRequest
     {
         internal string Username { get; set; }
 

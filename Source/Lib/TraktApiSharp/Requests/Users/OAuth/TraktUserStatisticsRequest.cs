@@ -2,11 +2,12 @@
 {
     using Base;
     using Extensions;
+    using Interfaces;
     using Objects.Get.Users.Statistics;
     using System;
     using System.Collections.Generic;
 
-    internal sealed class TraktUserStatisticsRequest : ATraktGetRequest<TraktUserStatistics>
+    internal sealed class TraktUserStatisticsRequest : ATraktGetRequest<TraktUserStatistics>, ITraktUsersGetRequest
     {
         internal string Username { get; set; }
 

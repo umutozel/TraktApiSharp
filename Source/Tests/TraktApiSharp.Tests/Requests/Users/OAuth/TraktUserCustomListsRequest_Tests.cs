@@ -8,6 +8,7 @@
     using Traits;
     using TraktApiSharp.Objects.Get.Users.Lists;
     using TraktApiSharp.Requests.Base;
+    using TraktApiSharp.Requests.Interfaces;
     using TraktApiSharp.Requests.Users.OAuth;
     using Xunit;
 
@@ -30,6 +31,12 @@
         public void Test_TraktUserCustomListsRequest_Inherits_ATraktGetRequest_1()
         {
             typeof(TraktUserCustomListsRequest).IsSubclassOf(typeof(ATraktGetRequest<TraktList>)).Should().BeTrue();
+        }
+
+        [Fact]
+        public void Test_TraktUserCustomListsRequest_Implements_ITraktUsersGetRequest_Interface()
+        {
+            typeof(TraktUserCustomListsRequest).GetInterfaces().Should().Contain(typeof(ITraktUsersGetRequest));
         }
 
         [Fact]
