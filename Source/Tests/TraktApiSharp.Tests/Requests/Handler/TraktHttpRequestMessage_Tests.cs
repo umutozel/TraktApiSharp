@@ -96,6 +96,19 @@
         }
 
         [Fact]
+        public void Test_TraktHttpRequestMessage_Has_IsCheckinRequest_Property()
+        {
+            var propertyInfo = typeof(TraktHttpRequestMessage)
+                    .GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance)
+                    .Where(p => p.Name == "IsCheckinRequest")
+                    .FirstOrDefault();
+
+            propertyInfo.CanRead.Should().BeTrue();
+            propertyInfo.CanWrite.Should().BeTrue();
+            propertyInfo.PropertyType.Should().Be(typeof(bool));
+        }
+
+        [Fact]
         public void Test_TraktHttpRequestMessage_Has_RequestObjectType_Property()
         {
             var propertyInfo = typeof(TraktHttpRequestMessage)

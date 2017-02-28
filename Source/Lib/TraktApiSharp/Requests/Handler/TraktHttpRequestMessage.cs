@@ -22,6 +22,8 @@
 
         public bool IsUsersGetRequestWithOptionalOAuth { get; set; }
 
+        public bool IsCheckinRequest { get; set; }
+
         public TraktRequestObjectType? RequestObjectType { get; set; }
 
         public string RequestBodyJson { get; set; }
