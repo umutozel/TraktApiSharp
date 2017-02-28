@@ -20,7 +20,7 @@
 
         public string Url { get; set; }
 
-        public bool IsUsersGetRequestWithOptionalOAuth { get; set; }
+        public bool IsUsersGetRequest { get; set; }
 
         public bool IsCheckinRequest { get; set; }
 

@@ -83,11 +83,11 @@
         }
 
         [Fact]
-        public void Test_TraktHttpRequestMessage_Has_IsUsersGetRequestWithOptionalOAuth_Property()
+        public void Test_TraktHttpRequestMessage_Has_IsUsersGetRequest_Property()
         {
             var propertyInfo = typeof(TraktHttpRequestMessage)
                     .GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance)
-                    .Where(p => p.Name == "IsUsersGetRequestWithOptionalOAuth")
+                    .Where(p => p.Name == "IsUsersGetRequest")
                     .FirstOrDefault();
 
             propertyInfo.CanRead.Should().BeTrue();
