@@ -372,6 +372,8 @@
             var url = BuildUrl(request);
             var requestMessage = new TraktHttpRequestMessage(request.Method, url) { Url = url };
 
+            requestMessage.IsUsersGetRequest = request is ITraktUsersGetRequest;
+
             if (request is ITraktHasId)
             {
                 var idRequest = request as ITraktHasId;
