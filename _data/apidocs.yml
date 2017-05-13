@@ -9,10 +9,10 @@
   archived: false
 - version: "0.7.0"
   short: "070"
-  archived: false
+  archived: true
 - version: "0.6.0"
   short: "060"
-  archived: false
+  archived: true
 - version: "0.5.1"
   short: "051"
   archived: true
