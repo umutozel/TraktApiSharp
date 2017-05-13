@@ -1,7 +1,24 @@
 [
     {
-        "version": "0.9.0",
+        "version": "0.10.0",
         "latest_stable": true,
+        "final": {
+            "releaseDate": "2017-05-13",
+            "nuget": {
+                "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.10.0/TraktApiSharp.0.10.0.nupkg",
+                "size": "547 KB",
+                "checksum": "968a7295f2433f44f182d157e275b58650ec0c63d59157d1509f83b1f3888123"
+            },
+            "zip": {
+                "url": "https://github.com/henrikfroehling/TraktApiSharp/releases/download/v0.10.0/TraktApiSharp.0.10.0.zip",
+                "size": "1.52 MB",
+                "checksum": "1a36eca9528f3ec6e88e6345f44630b9bf4a9a275a4bd61c6ec36a210e0876e7"
+            }
+        }
+    },
+    {
+        "version": "0.9.0",
+        "latest_stable": false,
         "final": {
             "releaseDate": "2017-01-24",
             "nuget": {
